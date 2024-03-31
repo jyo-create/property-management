@@ -49,8 +49,6 @@ public class PropertyServiceImpl implements PropertyService {
             propertyEntity.setPrice(propertyDTO.getPrice());
             propertyEntity.setAddress(propertyDTO.getAddress());
             propertyEntity.setDescription(propertyDTO.getDescription());
-            propertyEntity.setOwnerEmail(propertyDTO.getOwnerEmail());
-            propertyEntity.setOwnerName(propertyDTO.getOwnerName());
 
             propertyRepository.save(propertyEntity);
             propertyDTO1 = convertProperty.convertPropertyEntityToDto(propertyEntity);
@@ -64,7 +62,6 @@ public class PropertyServiceImpl implements PropertyService {
         PropertyDTO propertyDTO1 = null;
         if(byId.isPresent()){
             PropertyEntity propertyEntity = byId.get();
-            propertyEntity.setOwnerEmail(propertyDTO.getOwnerEmail());
             propertyRepository.save(propertyEntity);
             propertyDTO1 = convertProperty.convertPropertyEntityToDto(propertyEntity);
         }

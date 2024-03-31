@@ -10,9 +10,7 @@ public class ConvertProperty {
         PropertyEntity propertyEntity = PropertyEntity.builder()
                 .title(propertyDTO.getTitle())
                 .address(propertyDTO.getAddress())
-                .ownerName(propertyDTO.getOwnerName())
                 .price(propertyDTO.getPrice())
-                .ownerEmail(propertyDTO.getOwnerEmail())
                 .description(propertyDTO.getDescription())
                 .build();
         return propertyEntity;
@@ -23,8 +21,6 @@ public class ConvertProperty {
                 .address(propertyEntity.getAddress())
                 .title(propertyEntity.getTitle())
                 .price(propertyEntity.getPrice())
-                .ownerName(propertyEntity.getOwnerName())
-                .ownerEmail(propertyEntity.getOwnerEmail())
                 .description(propertyEntity.getDescription())
                 .propertyId(propertyEntity.getPropertyId())
                 .build();

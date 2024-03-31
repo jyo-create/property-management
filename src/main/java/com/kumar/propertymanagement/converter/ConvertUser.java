@@ -7,23 +7,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConvertUser {
     public UserEntity convertDTOtoEntity(UserDTO userDTO){
-        UserEntity  userEntity = UserEntity.builder()
+        return UserEntity.builder()
                 .ownerName(userDTO.getOwnerName())
                 .ownerEmail(userDTO.getOwnerEmail())
                 .password(userDTO.getPassword())
                 .phoneNumber(userDTO.getPhoneNumber())
                 .build();
-        return userEntity;
     }
 
     public UserDTO convertEntitytoDTO(UserEntity userEntity){
-        UserDTO userDTO = UserDTO.builder()
+        return UserDTO.builder()
                 .userId(userEntity.getUserId())
                 .ownerName(userEntity.getOwnerName())
                 .ownerEmail(userEntity.getOwnerEmail())
                 //.password(userEntity.getPassword())
                 .phoneNumber(userEntity.getPhoneNumber())
                 .build();
-        return  userDTO;
     }
 }

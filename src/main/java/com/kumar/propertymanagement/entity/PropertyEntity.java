@@ -2,7 +2,6 @@ package com.kumar.propertymanagement.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.stereotype.Service;
 
 @Getter
 @Setter

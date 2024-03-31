@@ -38,42 +38,36 @@ public class PropertyController {
     }
 
     @PostMapping("/multiply")
-    public ResponseEntity multiply(@RequestBody Calculator calculator){
+    public ResponseEntity<Double> multiply(@RequestBody Calculator calculator){
         Double result = calculator.getNum1()*calculator.getNum2();
-        ResponseEntity<Double> responseEntity = new ResponseEntity<>(result, HttpStatus.CREATED);
-        return responseEntity;
+        return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 
     @PostMapping("/save")
-    public ResponseEntity saveProperty(@RequestBody PropertyDTO propertyDTO){
+    public ResponseEntity<PropertyDTO> saveProperty(@RequestBody PropertyDTO propertyDTO){
         PropertyDTO property =  propertyService.save(propertyDTO);
-        ResponseEntity<PropertyDTO> responseEntity = new ResponseEntity<>(property,HttpStatus.CREATED);
-        return responseEntity;
+        return new ResponseEntity<>(property,HttpStatus.CREATED);
     }
 
     @GetMapping("/get")
-    public ResponseEntity getAllProperties(){
+    public ResponseEntity<List<PropertyDTO>> getAllProperties(){
         System.out.println(dummy+"*********");
         List<PropertyDTO> all = propertyService.getAll();
-        ResponseEntity<List<PropertyDTO>> responseEntity = new ResponseEntity<>(
+        return new ResponseEntity<>(
                 all,HttpStatus.CREATED
         );
-        return responseEntity;
-
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity updateById(@PathVariable Long id, @RequestBody PropertyDTO propertyDTO){
+    public ResponseEntity<PropertyDTO> updateById(@PathVariable Long id, @RequestBody PropertyDTO propertyDTO){
         PropertyDTO propertyDTO1 = propertyService.updateProperty(propertyDTO, id);
-        ResponseEntity<PropertyDTO> responseEntity = new ResponseEntity<>(propertyDTO1,HttpStatus.OK);
-        return responseEntity;
+        return new ResponseEntity<>(propertyDTO1,HttpStatus.OK);
     }
 
     @PatchMapping("/email/{id}")
-    public ResponseEntity updateEmail(@PathVariable Long id, @RequestBody PropertyDTO propertyDTO){
+    public ResponseEntity<PropertyDTO> updateEmail(@PathVariable Long id, @RequestBody PropertyDTO propertyDTO){
         PropertyDTO propertyDTO1 = propertyService.updateEmail(propertyDTO, id);
-        ResponseEntity<PropertyDTO> responseEntity = new ResponseEntity<>(propertyDTO1,HttpStatus.OK);
-        return responseEntity;
+        return new ResponseEntity<>(propertyDTO1,HttpStatus.OK);
     }
 
     @DeleteMapping("delete/{id}")

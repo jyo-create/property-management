@@ -19,4 +19,10 @@ public class UserController {
       UserDTO userDTO1 =  userService.register(userDTO);
       return new ResponseEntity<>(userDTO1, HttpStatus.CREATED);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<UserDTO> login(@RequestBody UserDTO userDTO){
+        UserDTO login = userService.login(userDTO.getOwnerEmail(), userDTO.getPassword());
+        return new ResponseEntity<UserDTO>(login,HttpStatus.OK);
+    }
 }

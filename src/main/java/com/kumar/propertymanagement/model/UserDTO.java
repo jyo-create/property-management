@@ -2,6 +2,7 @@ package com.kumar.propertymanagement.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +15,9 @@ import lombok.Setter;
 public class UserDTO {
     private Long userId;
     private String ownerName;
+    @NotNull
     private String ownerEmail;
     private String phoneNumber;
+    @NotNull
     private String password;
 }
